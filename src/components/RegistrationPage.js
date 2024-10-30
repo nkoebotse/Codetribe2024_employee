@@ -1,45 +1,72 @@
-// src/Components/RegistrationPage.js
+// src/RegisterPage.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const RegistrationPage = () => {
-    const [newUser, setNewUser] = useState({ username: '', password: '' });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setNewUser({ ...newUser, [name]: value });
-    };
+const RegisterPage = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // You can store the registration data in local storage
-        localStorage.setItem('userRegistration', JSON.stringify(newUser));
-        alert('Registration successful!'); // You can replace this with actual registration logic
-    };
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+    console.log('Registering user:', { name, email, password });
+    navigate('/login');
+  };
 
-    return (
-        <div className="registration-container">
-            <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={newUser.username}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={newUser.password}
-                    onChange={handleChange}
-                    required
-                />
-                <button type="submit">Register</button>
-            </form>
+  return (
+    <div className="form-container">
+      <h2>Register</h2>
+      <form onSubmit={handleRegister}>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </div>
-    );
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Confirm Password:</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Register</button>
+        <p>
+          Already have an account? <a href="/login">Login here</a>
+        </p>
+      </form>
+    </div>
+  );
 };
 
-export default RegistrationPage;
+export default RegisterPage;

@@ -147,3 +147,107 @@ table .edit-button:hover {
 table .delete-button:hover {
   background-color: #c82333;
 }
+
+
+
+/* src/FormStyles.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 100px auto; /* Center the form on the page */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; /* Dark color for the heading */
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555; /* Lighter color for labels */
+}
+
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container input:focus {
+  border-color: #007bff; /* Highlight border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-container button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.form-container p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-container a {
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.form-container a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+
+
+
+
+
+/* src/components/CookieBanner.css */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.cookie-banner button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cookie-banner button:hover {
+  background-color: #0056b3;
+}

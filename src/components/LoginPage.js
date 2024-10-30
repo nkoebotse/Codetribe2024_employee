@@ -1,42 +1,48 @@
-// src/components/LoginPage.js
+// src/LoginPage.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import { useNavigate } from 'react-router-dom';
 
-const LoginPage = ({ onLogin }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-  
-    const onSubmitHandler = (event) => {
-      event.preventDefault();
-      // Add your authentication logic here
-      // If successful, call onLogin
-      if (username && password) { // Replace with actual authentication logic
-        onLogin(); // Call the function to update login state
-      }
-    }
-  
-    const onChangeUsername = (event) => {
-      setUsername(event.target.value);
-    }
-  
-    const onChangePassword = (event) => {
-      setPassword(event.target.value);
-    }
-  
-    return (
-      <div id="login-page">
-        <form onSubmit={onSubmitHandler}>
-          <label htmlFor="username">Username</label>
-          <input id="username" autoComplete="off" onChange={onChangeUsername} value={username} type="text" />
-          <label htmlFor="password">Password</label>
-          <input id="password" autoComplete="off" onChange={onChangePassword} value={password} type="password" />
-          <button type="submit" className="btn">Login</button>
-        </form>
+
+const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log('Logging in with', { email, password });
+    navigate('/EmployeeManager');
+  };
+
+  return (
+    <div className="form-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
         <p>
-          Don't have an account? <Link to="/register">Register here</Link>
+          Don't have an account? <a href="/register">Register here</a>
         </p>
-      </div>
-    )
-}
+      </form>
+    </div>
+  );
+};
 
 export default LoginPage;
