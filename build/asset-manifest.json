@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9fa61595.css",
+    "main.js": "/static/js/main.b9ea31fa.js",
+    "static/media/salt-harvesting-3060093_1280.jpg": "/static/media/salt-harvesting-3060093_1280.ed97a1fa563cc141d42f.jpg",
+    "index.html": "/index.html",
+    "main.9fa61595.css.map": "/static/css/main.9fa61595.css.map",
+    "main.b9ea31fa.js.map": "/static/js/main.b9ea31fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9fa61595.css",
+    "static/js/main.b9ea31fa.js"
+  ]
+}
